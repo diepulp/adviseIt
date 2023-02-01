@@ -16,7 +16,9 @@ use App\Http\Controllers\StudentController;
 Route::get('/', function () {
     return view('home');
 });
-Route::view('/', 'home');
+
+//View return
+// Route::view('/', 'home');
 
 // Route::get('/hello', function(){
 //     return response("<h1>hello world</h1>", 200) 
