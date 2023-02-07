@@ -44,12 +44,15 @@ Route::get('/students', [StudentController::class, 'index']);
 Route::get('/plans', [PlanController::class, 'index']);
 
 //Find a plan controller
-Route::get('/plan/{id}', [PlanController::class, 'show']); 
+Route::get('/plan/{id}', [PlanController::class, 'show']);
 
-//Single plan
-// Route::get('/plan/{id}', function ($id) {
+//Single plan qith an id
+Route::get('/plan/{id}', function ($id) {
 
-//     return view('plans.plan', [
-//         'plan' => Plan::find($id)
-//     ]);
-// });
+    return view('plans.plan', [
+        'plan' => Plan::find($id)
+    ]);
+});
+
+//New Plan page with a uniwue token 
+Route::get('/plan', [PlanController::class, 'create']);

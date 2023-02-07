@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PlanController extends Controller
 {
@@ -26,7 +28,9 @@ class PlanController extends Controller
      */
     public function create()
     {
+        $token = Str::random(6);
         //
+        return view('plans.plan', ["token" => $token]);
     }
 
     /**
