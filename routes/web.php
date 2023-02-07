@@ -55,4 +55,4 @@ Route::get('/plan/{id}', function ($id) {
 });
 
 //New Plan page with a uniwue token 
-Route::get('/plan', [PlanController::class, 'create']);
+Route::get('/new-plan', [PlanController::class, 'create']);

@@ -1,9 +1,10 @@
 @extends('layout')
 @section('content')
-<h1>Plans</h1>
+
 <a href="/" class="inline-block text-black ml-4 mb-4"
 ><i class="fa-solid fa-arrow-left"></i> Back
 </a>
+<h1 class="flex justify-center text-center text-3xl">Plans</h1>
 @unless((count($plans) == 0))
 
 @foreach($plans as $plan)

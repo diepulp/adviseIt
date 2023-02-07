@@ -30,7 +30,7 @@ class PlanController extends Controller
     {
         $token = Str::random(6);
         //
-        return view('plans.plan', ["token" => $token]);
+        return view('plans.new-plan', ["token" => $token]);
     }
 
     /**

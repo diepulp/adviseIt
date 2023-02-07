@@ -18,7 +18,7 @@
                 theme: {
                     extend: {
                         colors: {
-                            laravel: "#ef3b2d",
+                            laravel: "#c2e4ce",
                         },
                     },
                 },
@@ -27,7 +27,8 @@
         <title>AdviseIt | Planning Tool</title>
     </head>
 <body>
-    <h3>AdviseIt Planning tool</h3>
+
     @yield('content')
+    
 </body>
 </html>
