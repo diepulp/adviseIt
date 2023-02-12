@@ -14,9 +14,22 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('plans.plans', [
+        // dd(request("class"));
+        // an alternative to the dependency injection
+        // dd(request("class"));
+        // return view('plans.index', [
+
+        //     // get all plans
+
+        //     //filter the latest plan
+        //     'plans' => Plan::latest()->filter((request(['winter'])))->get()
+
+        // ]);
+
+        // --------------------
+        return view('plans.index', [
             'plans' => Plan::all()
         ]);
     }
@@ -50,10 +63,10 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Plan $plan)
     {
-        return view('plans.plan', [
-            'plan' => Plan::find($id)
+        return view('plans.show', [
+            'plan' => $plan
         ]);
     }
 

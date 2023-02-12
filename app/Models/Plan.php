@@ -21,4 +21,12 @@ class Plan extends Model
     //         }
     //     }
     // }
+
+    public function scopeFilter($query, array $filters)
+    {
+        // dd($filters['search']);
+        if ($filters['winter'] ?? false) {
+            $query->where('id', "like", '%' . request('search') . '%');
+        }
+    }
 }

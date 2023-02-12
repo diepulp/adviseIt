@@ -13,9 +13,8 @@ use App\Http\Controllers\StudentController;
 |------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [PlanController::class, 'index']);
+Route::get('/plans/{plan}', [PlanController::class, 'show']);
 
 //View
 // Route::view('/', 'home');
@@ -40,19 +39,19 @@ Route::get('/post/{id}', function ($id) {
 //Students controller
 Route::get('/students', [StudentController::class, 'index']);
 
-//Plans controller
-Route::get('/plans', [PlanController::class, 'index']);
+//All Plans controller
+// Route::get('/plans.index', [PlanController::class, 'index']);
 
 //Find a plan controller
-Route::get('/plan/{id}', [PlanController::class, 'show']);
+
 
 //Single plan qith an id
-Route::get('/plan/{id}', function ($id) {
+// Route::get('/plan/{id}', function ($id) {
 
-    return view('plans.plan', [
-        'plan' => Plan::find($id)
-    ]);
-});
+//     return view('plans.plan', [
+//         'plan' => Plan::find($id)
+//     ]);
+// });
 
 //New Plan page with a uniwue token 
 Route::get('/new-plan', [PlanController::class, 'create']);

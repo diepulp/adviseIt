@@ -1,5 +1,4 @@
-@extends('layout')
-@section('content')
+<x-layout>
 @include('partials._hero')
 @include('partials._search')
 
@@ -7,4 +6,4 @@
 <h3>Click the button to start a new plan</h3>
 <a href="/plan" class="bg-cyan-200 rounded p-1 inline-block text-black ml-4 mb-4">New plan</a>
 </div> --}}
-@endsection
+</x-layout> 

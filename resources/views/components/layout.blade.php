@@ -26,9 +26,11 @@
         </script>
         <title>AdviseIt | Planning Tool</title>
     </head>
-<body>
-
-    @yield('content')
+<body class="">
+    {{-- Blade template --}}
+    {{-- @yield('content') --}}
+    {{-- Component --}}
+    {{$slot}}
     
 </body>
 </html>

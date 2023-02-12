@@ -7,10 +7,10 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
 ></div>
 
 <div class="z-10">
-    <h1 class="text-6xl font-bold uppercase text-white">
+    <h1 class="text-6xl font-bold uppercase text-red-300">
         Advise<span class="text-black">It</span>
     </h1>
-    <p class="text-2xl text-gray-200 font-bold my-4">
+    <p class="text-2xl text-black-200 font-bold my-4">
         Create New Advising Plan
     </p>
     <div>
