@@ -28,5 +28,8 @@ class Plan extends Model
         if ($filters['token'] ?? false) {
             $query->where('token', "like", '%' . request('token') . '%');
         }
+        if ($filters['search'] ?? false) {
+            $query->where('token', 'like', '%' . request('search') . '%');
+        }
     }
 }

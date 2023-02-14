@@ -19,7 +19,7 @@ class PlanController extends Controller
         // get all plans
         //filter by the latest plan
         return view('plans.index', [
-            'plans' => Plan::latest()->filter((request(['token'])))->get()
+            'plans' => Plan::latest()->filter((request(['token', 'search'])))->get()
         ]);
     }
 
