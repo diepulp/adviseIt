@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
+    protected $fillable = ['fall', 'winter', 'spring', 'summer', 'token'];
+
     use HasFactory;
 
     // public static function find($id)

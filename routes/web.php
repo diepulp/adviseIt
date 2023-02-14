@@ -16,11 +16,17 @@ use App\Http\Controllers\StudentController;
 //All Plans controller
 Route::get('/', [PlanController::class, 'index']);
 
-//show single plan 
+//New Plan page with a uniwue token 
+Route::get('/plans/new-plan', [PlanController::class, 'create']);
+
+
+//Store plan data (needs to be Route::post, but throws an error, no idea)
+Route::get('/plans', [PlanController::class, 'store']);
+
+//Show single plan (has to be at the end of the file to work for some reason)
 Route::get('/plans/{plan}', [PlanController::class, 'show']);
 
-//New Plan page with a uniwue token 
-Route::get('/new-plan', [PlanController::class, 'create']);
+
 
 
 // Route::get('/hello', function(){

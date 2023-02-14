@@ -54,10 +54,35 @@ class PlanController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * 
      */
+    //VALIDATION-----------------------
+    // $formData = $request->validate([
+    //     'KEY'=> 'value', 
+    // ])
+
     public function store(Request $request)
     {
-        //
+        // dd($request['token']);
+
+        $plan = new Plan();
+        // dd($plan);
+        // $formData = $request->validate([
+        //     'fall' => $request->'fall',
+        //     'winter' => $request->'winter'],
+        //     'spring' => $request['spring'],
+        //     'summer' => $request['summer'],
+        //     'token' => $request['token'],
+        // ]);
+
+        $plan->fall = $request->fall;
+        $plan->winter = $request->winter;
+        $plan->spring = $request->spring;
+        $plan->summer = $request->summer;
+        $plan->token = $request->token;
+
+        $plan->save();
+        return redirect('/');
     }
 
 
