@@ -14,23 +14,26 @@ class PlanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // dd(request("class"));
-        // an alternative to the dependency injection
-        // dd(request("class"));
-        // return view('plans.index', [
-
-        //     // get all plans
-
-        //     //filter the latest plan
-        //     'plans' => Plan::latest()->filter((request(['winter'])))->get()
-
-        // ]);
-
-        // --------------------
+        // get all plans
+        //filter by the latest plan
         return view('plans.index', [
-            'plans' => Plan::all()
+            'plans' => Plan::latest()->filter((request(['token'])))->get()
+        ]);
+    }
+
+    /**
+     * Display the specified resource (show single plan)
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Plan $plan)
+    {
+        // dd($plan);
+        return view('plans.show', [
+            'plan' => $plan
         ]);
     }
 
@@ -57,18 +60,7 @@ class PlanController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Plan $plan)
-    {
-        return view('plans.show', [
-            'plan' => $plan
-        ]);
-    }
+
 
     /**
      * Show the form for editing the specified resource.

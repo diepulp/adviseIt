@@ -13,11 +13,15 @@ use App\Http\Controllers\StudentController;
 |------------------------------------------------------------------
 */
 
+//All Plans controller
 Route::get('/', [PlanController::class, 'index']);
+
+//show single plan 
 Route::get('/plans/{plan}', [PlanController::class, 'show']);
 
-//View
-// Route::view('/', 'home');
+//New Plan page with a uniwue token 
+Route::get('/new-plan', [PlanController::class, 'create']);
+
 
 // Route::get('/hello', function(){
 //     return response("<h1>hello world</h1>", 200) 
@@ -25,33 +29,17 @@ Route::get('/plans/{plan}', [PlanController::class, 'show']);
 //     ->header('foo', 'bar');
 // });
 
-Route::get('/post/{id}', function ($id) {
-    //debugging helper methods
-    // ddd($id);
-    return response('The post Id ' . $id);
-})->where('id', '[0-9]+'); //add constraints to the id (nums only)
 
 //Request params from the query string
 // Route::get('/search', function(Request $request){
 //    dd($request->name);
 // });
 
-//Students controller
-Route::get('/students', [StudentController::class, 'index']);
 
-//All Plans controller
-// Route::get('/plans.index', [PlanController::class, 'index']);
-
-//Find a plan controller
-
-
-//Single plan qith an id
+//Single plan with an id
 // Route::get('/plan/{id}', function ($id) {
 
 //     return view('plans.plan', [
 //         'plan' => Plan::find($id)
 //     ]);
 // });
-
-//New Plan page with a uniwue token 
-Route::get('/new-plan', [PlanController::class, 'create']);

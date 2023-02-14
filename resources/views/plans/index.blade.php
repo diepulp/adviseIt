@@ -6,11 +6,13 @@
 </a>
 <h1 class="flex justify-center text-center font-bold text-3xl m-4">Plans:</h1>
 <div
-class="lg:grid lg:grid-cols-2 gap-4 space-y-4 md:space-y-0 mx-4"
+class="lg:grid lg:grid-cols-2 col-auto gap-4 space-y-4 md:space-y-0 mx-4"
 >
 @unless((count($plans) == 0))
 
 @foreach($plans as $plan)
+
+{{-- pass the prop "plan" variable to the plan component --}}
 <x-plan-card :plan="$plan"/>
 @endforeach
     
