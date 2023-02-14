@@ -16,10 +16,11 @@ class PlanController extends Controller
      */
     public function index()
     {
+        // dd(Plan::latest()->filter((request(['token', 'search'])))->paginate(2));
         // get all plans
         //filter by the latest plan
         return view('plans.index', [
-            'plans' => Plan::latest()->filter((request(['token', 'search'])))->get()
+            'plans' => Plan::latest()->filter((request(['token', 'search'])))->simplePaginate(4)
         ]);
     }
 
@@ -64,7 +65,7 @@ class PlanController extends Controller
     public function store(Request $request)
     {
         // dd($request['token']);
-
+        // dd(session());
         $plan = new Plan();
         // dd($plan);
         // $formData = $request->validate([
@@ -82,7 +83,10 @@ class PlanController extends Controller
         $plan->token = $request->token;
 
         $plan->save();
-        return redirect('/');
+
+        //Flash messege with session
+        // Session::flash("message", "Plan created?");
+        return redirect('/')->with('message', 'Plan Created Successfully');
     }
 
 

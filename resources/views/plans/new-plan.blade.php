@@ -20,22 +20,30 @@
         
         <div class="flex flex-col">
             <label class="inline-block justify-center text-center" for="fall ">Fall</label>
-            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="fall" name="fall"></textarea>
+            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="fall" name="fall">
+                {{old('fall')}}
+            </textarea>
         </div>
 
         <div class=" flex flex-col">
             <label class="inline-block justify-center text-center" for="winter ">Winter</label>
-            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="winter" name="winter"></textarea>
+            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="winter" name="winter">
+
+            </textarea>
         </div>
 
         <div class=" flex flex-col">
             <label class="inline-block justify-center text-center" for="winter ">Spring</label>
-            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="spring" name="spring"></textarea>
+            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="spring" name="spring">
+
+            </textarea>
         </div>
 
         <div class=" flex flex-col">
             <label class="inline-block justify-center text-center" for="winter ">Summer</label>
-            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="summer" name="summer"></textarea>
+            <textarea class="outline-none border-4 border-indigo h-48" type="text" id="summer" name="summer">
+                
+            </textarea>
         </div>
         <div class="hidden">
             <label class="inline-block justify-center text-center" for="token ">Token</label>
@@ -48,6 +56,7 @@
 
 </form>
 {{-- end form --}}
+
 </x-card>
 {{-- <a href="#" class="inline-block border-2 border-white text-cyan py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black">Save</a> --}}
 </x-card>

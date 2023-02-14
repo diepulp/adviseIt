@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    protected $fillable = ['fall', 'winter', 'spring', 'summer', 'token'];
+    // Not needed as the AppServiceProvider boot() method was updated
+    // protected $fillable = ['fall', 'winter', 'spring', 'summer', 'token'];
 
     use HasFactory;
 

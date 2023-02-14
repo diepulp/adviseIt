@@ -18,8 +18,8 @@ class PlanFactory extends Factory
     public function definition()
     {
         return [
-            'fall' => 'sdev378, sdev455',
-            'winter' => 'sdev67, sdev305',
+            'fall' => '',
+            'winter' => '',
             'spring' => 'sdev123, sdev455',
             'summer' => 'rest',
             'token' => Str::random(6)
