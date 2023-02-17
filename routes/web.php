@@ -23,6 +23,15 @@ Route::get('/plans/new-plan', [PlanController::class, 'create']);
 //Store plan data (needs to be Route::post, but throws an error, no idea)
 Route::get('/plans', [PlanController::class, 'store']);
 
+//Update a plan
+Route::put('/plans/{plan}', [PlanController::class, 'update']);
+
+//Show edit from
+Route::get('/plans/{plan}/edit', [PlanController::class, 'edit']);
+
+
+
+
 //Show single plan (has to be at the end of the file to work for some reason)
 Route::get('/plans/{plan}', [PlanController::class, 'show']);
 

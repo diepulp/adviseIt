@@ -20,7 +20,7 @@ class PlanController extends Controller
         // get all plans
         //filter by the latest plan
         return view('plans.index', [
-            'plans' => Plan::latest()->filter((request(['token', 'search'])))->simplePaginate(4)
+            'plans' => Plan::latest()->filter((request(['token', 'search'])))->simplePaginate(2)
         ]);
     }
 
@@ -97,9 +97,10 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Plan $plan)
     {
-        //
+        // dd('$plan->token');
+        return view('plans.edit', ['plan' => $plan]);
     }
 
     /**
@@ -109,9 +110,21 @@ class PlanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Plan $plan)
     {
-        //
+        // dd($plan);
+        $plan->fall = $request->fall;
+        $plan->winter = $request->winter;
+        $plan->spring = $request->spring;
+        $plan->summer = $request->summer;
+        $plan->token = $request->token;
+
+        $plan->update();
+
+        //Flash messege with session
+        // Session::flash("message", "Plan created?");
+        // return redirect('/')->with('message', 'Plan Updated Successfully');
+        return back()->with('message', 'Plan Updated Successfully');
     }
 
     /**
