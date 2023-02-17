@@ -64,17 +64,8 @@ class PlanController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request['token']);
-        // dd(session());
+
         $plan = new Plan();
-        // dd($plan);
-        // $formData = $request->validate([
-        //     'fall' => $request->'fall',
-        //     'winter' => $request->'winter'],
-        //     'spring' => $request['spring'],
-        //     'summer' => $request['summer'],
-        //     'token' => $request['token'],
-        // ]);
 
         $plan->fall = $request->fall;
         $plan->winter = $request->winter;
@@ -85,7 +76,7 @@ class PlanController extends Controller
         $plan->save();
 
         //Flash messege with session
-        // Session::flash("message", "Plan created?");
+        // Session::flash("message", "Plan created?"); ... OR >
         return redirect('/')->with('message', 'Plan Created Successfully');
     }
 

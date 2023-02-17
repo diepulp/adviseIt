@@ -1,11 +1,12 @@
 <?php
 
-
+use App\Http\Controllers\AdvisorController;
 use App\Models\Plan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlanController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,18 @@ Route::delete('/plans/{plan}', [PlanController::class, 'destroy']);
 
 //Show edit from
 Route::get('/plans/{plan}/edit', [PlanController::class, 'edit']);
+
+//Show Register Create from
+Route::get('/register', [UserController::class, 'register']);
+
+//Create new user
+Route::post('/users', [UserController::class, 'store']);
+
+// Logout
+Route::post('/logout', [UserController::class, 'logout']);
+
+//Show login from
+Route::get('/login', [UserController::class, 'login']);
 
 
 
