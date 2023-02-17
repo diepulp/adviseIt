@@ -26,8 +26,14 @@ Route::get('/plans', [PlanController::class, 'store']);
 //Update a plan
 Route::put('/plans/{plan}', [PlanController::class, 'update']);
 
+//Delete plan
+Route::delete('/plans/{plan}', [PlanController::class, 'destroy']);
+
 //Show edit from
 Route::get('/plans/{plan}/edit', [PlanController::class, 'edit']);
+
+
+
 
 
 
