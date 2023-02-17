@@ -7,8 +7,8 @@
         <p class="mb-4">Login to view your plans</p>
     </header>
 
-    <form action="/users/login" method="POST">
-        
+    <form action="/users/authenticate" method="POST">
+
         @csrf
 
         <div class="mb-6">
@@ -19,7 +19,7 @@
                 type="email"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="email"
-                value={{old('email')}}
+                value="{{old('email')}}"
             />
          
             @error('email') 
@@ -38,28 +38,10 @@
                 type="password"
                 class="border border-gray-200 rounded p-2 w-full"
                 name="password"
-                value={{old('password')}}
+                value="{{old('password')}}"
             />
 
-            @error('name') 
-            <p class="text-red-500 text-xs mt-1">{{$message}}</p>
-            @enderror
-        </div>
-
-        <div class="mb-6">
-            <label
-                for="password_confirmation"
-                class="inline-block text-lg mb-2"
-            >
-                Confirm Password
-            </label>
-            <input
-                type="password"
-                class="border border-gray-200 rounded p-2 w-full"
-                name="password_confirmation"
-               
-            />
-            @error('password_confirmation') 
+            @error('password') 
             <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
@@ -69,15 +51,15 @@
                 type="submit"
                 class="bg-laravel text-white rounded py-2 px-4 hover:bg-black"
             >
-                Sign Up
+                Sign In
             </button>
         </div>
 
         <div class="mt-8">
             <p>
-                Already have an account?
-                <a href="/login" class="text-laravel"
-                    >Login</a
+                Do not have  an account?
+                <a href="/register" class="text-laravel"
+                    >Register</a
                 >
             </p>
         </div>

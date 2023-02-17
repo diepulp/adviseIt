@@ -45,6 +45,9 @@ Route::post('/logout', [UserController::class, 'logout']);
 //Show login from
 Route::get('/login', [UserController::class, 'login']);
 
+//Login user resourcebundle_get_error_code
+Route::post('/users/authenticate', [UserController::class, "authenticate"]);
+
 
 
 
