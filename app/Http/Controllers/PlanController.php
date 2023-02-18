@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Plan;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,6 +73,7 @@ class PlanController extends Controller
         $plan->spring = $request->spring;
         $plan->summer = $request->summer;
         $plan->token = $request->token;
+        $plan->user_id = auth()->id();
 
         $plan->save();
 
@@ -103,7 +105,11 @@ class PlanController extends Controller
      */
     public function update(Request $request, Plan $plan)
     {
-        // dd($plan);
+        // Make sure the logged in user is the owner of the plan
+        if ($plan->user_id != auth()->id()) {
+            abort(403, "Unauthorized action");
+        }
+
         $plan->fall = $request->fall;
         $plan->winter = $request->winter;
         $plan->spring = $request->spring;
@@ -112,7 +118,7 @@ class PlanController extends Controller
 
         $plan->update();
 
-        //Flash messege with session
+        //Flash message with session
         // Session::flash("message", "Plan created?");
         // return redirect('/')->with('message', 'Plan Updated Successfully');
         return back()->with('message', 'Plan Updated Successfully');
@@ -126,7 +132,19 @@ class PlanController extends Controller
      */
     public function destroy(Plan $plan)
     {
+        // Make sure the logged in user is the owner of the plan
+        if ($plan->user_id != auth()->id()) {
+            abort(403, "Unauthorized action");
+        }
+
         $plan->delete();
         return redirect('/')->with('message', 'The plan id ' . $plan->token . ' was deleted successfully');
+    }
+
+    // Manage Plans
+    public function manage()
+    {
+        // dd(auth()->user());
+        return view('plans.manage', ['plans' => auth()->user()->plans()->get()]);
     }
 }

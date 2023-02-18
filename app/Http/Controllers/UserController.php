@@ -8,7 +8,7 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    //Shoe register/create form
+    //Show register/create form
     public function register()
     {
         return view('users.register');
@@ -52,7 +52,7 @@ class UserController extends Controller
         return view('users.login');
     }
 
-    //Authenticate user_error
+    //Authenticate user
     public function authenticate(Request $request)
     {
         $formFields = $request->validate([
@@ -62,6 +62,7 @@ class UserController extends Controller
 
         //attempt tp log the user
         if (auth()->attempt($formFields)) {
+
             $request->session()->regenerate();
 
             return redirect('/')->with('message', 'You are now logged in');

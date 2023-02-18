@@ -35,11 +35,11 @@
           @auth
           <li>
             <span class="font-bold uppercase">
-              Welcome {{auth()->user()->name}}
+              Welcome, {{auth()->user()->name}}
             </span>
           </li>
           <li>
-            <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Listings</a>
+            <a href="/plans/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Plans</a>
           </li>
           <li>
             <form class="inline" method="POST" action="/logout">

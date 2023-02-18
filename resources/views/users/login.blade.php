@@ -57,9 +57,9 @@
 
         <div class="mt-8">
             <p>
-                Do not have  an account?
+                Do not have an account?
                 <a href="/register" class="text-laravel"
-                    >Register</a
+                    > Register</a
                 >
             </p>
         </div>

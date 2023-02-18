@@ -18,42 +18,39 @@ use App\Http\Controllers\UserController;
 Route::get('/', [PlanController::class, 'index']);
 
 //New Plan page with a uniwue token 
-Route::get('/plans/new-plan', [PlanController::class, 'create']);
-
+Route::get('/plans/new-plan', [PlanController::class, 'create'])->middleware('auth');
 
 //Store plan data (needs to be Route::post, but throws an error, no idea)
-Route::get('/plans', [PlanController::class, 'store']);
+Route::get('/plans', [PlanController::class, 'store'])->middleware('auth');
 
 //Update a plan
-Route::put('/plans/{plan}', [PlanController::class, 'update']);
+Route::put('/plans/{plan}', [PlanController::class, 'update'])->middleware('auth');
 
 //Delete plan
-Route::delete('/plans/{plan}', [PlanController::class, 'destroy']);
+Route::delete('/plans/{plan}', [PlanController::class, 'destroy'])->middleware('auth');
+
+// Manage plans
+Route::get('/plans/manage', [PlanController::class, 'manage'])->middleware('auth');
 
 //Show edit from
-Route::get('/plans/{plan}/edit', [PlanController::class, 'edit']);
+Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->middleware('auth');
 
 //Show Register Create from
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 
 //Create new user
 Route::post('/users', [UserController::class, 'store']);
 
 // Logout
-Route::post('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout'])->middleware('auth');
 
 //Show login from
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 
-//Login user resourcebundle_get_error_code
+//Login user 
 Route::post('/users/authenticate', [UserController::class, "authenticate"]);
 
-
-
-
-
-
-
+// ---------------------------------------------------------------------------------------
 //Show single plan (has to be at the end of the file to work for some reason)
 Route::get('/plans/{plan}', [PlanController::class, 'show']);
 

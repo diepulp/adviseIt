@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->mediumText('fall');
             $table->mediumText('winter');
             $table->mediumText('spring');

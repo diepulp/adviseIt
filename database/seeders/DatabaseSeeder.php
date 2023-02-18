@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Plan;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Factories\PlanFactory;
 
@@ -23,6 +24,15 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Plan::factory(1)->create();
+
+
+        $user = User::factory()->create([
+            'name' => "Tyler Hang",
+            'email' => 'tyler@gmail.com'
+        ]);
+
+        Plan::factory(6)->create([
+            'user_id' => $user->id
+        ]);
     }
 }
