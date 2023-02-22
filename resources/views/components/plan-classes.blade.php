@@ -10,7 +10,7 @@
     <li 
         class="flex items-center justify-center bg-black text-white rounded-xl py-1 px-3 mr-2 text-xs"
     >
-        <a href="/?token={{$tokens}}">PLan UUID: {{$tokens}}</a>
+        <a href="/?token={{$tokens}}"> PLan UUID: {{$tokens}}</a>
       
     </li>
 {{-- @endforeach --}}

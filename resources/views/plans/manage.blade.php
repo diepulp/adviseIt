@@ -24,7 +24,7 @@
                         class="px-4 py-8 border-t border-b border-gray-300 text-lg"
                     >
                         <a
-                            href="/plans/{{$plan->id}}/edit"
+                            href="/plans/{{$plan->id}}/edit/{{$plan->token}}"
                             class="text-blue-400 px-6 py-2 rounded-xl"
                             ><i
                                 class="fa-solid fa-pen-to-square"

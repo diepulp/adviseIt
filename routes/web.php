@@ -33,7 +33,7 @@ Route::delete('/plans/{plan}', [PlanController::class, 'destroy'])->middleware('
 Route::get('/plans/manage', [PlanController::class, 'manage'])->middleware('auth');
 
 //Show edit from
-Route::get('/plans/{plan}/edit', [PlanController::class, 'edit'])->middleware('auth');
+Route::get('/plans/{plan}/edit/{token}', [PlanController::class, 'edit'])->middleware('auth');
 
 //Show Register Create from
 Route::get('/register', [UserController::class, 'register'])->middleware('guest');

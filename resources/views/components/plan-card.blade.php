@@ -1,6 +1,7 @@
 {{-- Pass props to the plan-card --}}
 @props(['plan'])
 
+
 <div class="mx-4">
 <x-card>
         <div
@@ -16,7 +17,7 @@
                 </h3>
 
                 <h3 class="text-2xl">
-                    <a href="/plans/{{$plan->id}}"><span class='text-red-400'>Click to view the View Plan:</span> {{$plan->id}}</a>
+                    <a href="/plans/{{$plan->id}}"><span class='text-red-400'> Click to view the View Plan:</span> {{$plan->id}}</a>
                 </h3>
 
                 <h3 class="text-2xl mb-2 ">Plan UUID: {{$plan->token}}</h3>

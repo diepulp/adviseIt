@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class PlanController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +49,7 @@ class PlanController extends Controller
     public function create()
     {
         $token = Str::random(6);
-        //
+
         return view('plans.new-plan', ["token" => $token]);
     }
 
@@ -67,7 +69,9 @@ class PlanController extends Controller
     {
 
         $plan = new Plan();
-
+        dd(
+            $request
+        );
         $plan->fall = $request->fall;
         $plan->winter = $request->winter;
         $plan->spring = $request->spring;
@@ -109,7 +113,7 @@ class PlanController extends Controller
         if ($plan->user_id != auth()->id()) {
             abort(403, "Unauthorized action");
         }
-
+        // dd($request);
         $plan->fall = $request->fall;
         $plan->winter = $request->winter;
         $plan->spring = $request->spring;
